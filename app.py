@@ -2,18 +2,21 @@ from flask import Flask
 
 app = Flask(__name__)
 
-# Disable Flask request logs
-import logging
-log = logging.getLogger('werkzeug')
-log.setLevel(logging.ERROR)
-
-@app.route("/")
+@app.route('/')
 def home():
-    return "<h1>Hello from python , to the aniket</h1>"
-              <h2>1.0.0</h2>
+    return """
+    <!DOCTYPE html>
+    <html>
+    <head>
+        <title>Flask Application</title>
+    </head>
+    <body>
+        <h1>Welcome to Flask Application</h1>
+        <h2>Version 1.0.0</h2>
+        <p>Application deployed successfully using Jenkins!</p>
+    </body>
+    </html>
+    """
 
-if __name__ == "__main__":
-    app.run(host="0.0.0.0", port=5000)
-
-
-# nohup python3 app.py >/dev/null 2>&1 &
+if __name__ == '__main__':
+    app.run(host='0.0.0.0', port=5000)
